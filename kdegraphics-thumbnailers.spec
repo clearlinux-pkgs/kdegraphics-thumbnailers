@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdegraphics-thumbnailers
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/kdegraphics-thumbnailers-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/kdegraphics-thumbnailers-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/kdegraphics-thumbnailers-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-thumbnailers-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-thumbnailers-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-thumbnailers-19.04.0.tar.xz.sig
 Summary  : Thumbnailers for various graphics file formats
 Group    : Development/Tools
 License  : GPL-2.0
@@ -50,14 +50,14 @@ license components for the kdegraphics-thumbnailers package.
 
 
 %prep
-%setup -q -n kdegraphics-thumbnailers-18.12.3
+%setup -q -n kdegraphics-thumbnailers-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555326727
+export SOURCE_DATE_EPOCH=1555609490
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -65,7 +65,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555326727
+export SOURCE_DATE_EPOCH=1555609490
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers
 cp COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/COPYING
@@ -79,10 +79,12 @@ popd
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/kservices5/blenderthumbnail.desktop
 /usr/share/kservices5/gsthumbnail.desktop
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/qt5/plugins/blenderthumbnail.so
 /usr/lib64/qt5/plugins/gsthumbnail.so
 
 %files license
