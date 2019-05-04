@@ -6,7 +6,7 @@
 #
 Name     : kdegraphics-thumbnailers
 Version  : 19.04.0
-Release  : 7
+Release  : 8
 URL      : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-thumbnailers-19.04.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-thumbnailers-19.04.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-thumbnailers-19.04.0.tar.xz.sig
@@ -18,6 +18,8 @@ Requires: kdegraphics-thumbnailers-lib = %{version}-%{release}
 Requires: kdegraphics-thumbnailers-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : libkdcraw-dev
+BuildRequires : libkexiv2-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -57,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557007743
+export SOURCE_DATE_EPOCH=1557008559
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -72,7 +74,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557007743
+export SOURCE_DATE_EPOCH=1557008559
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers
 cp COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/COPYING
@@ -88,11 +90,13 @@ popd
 %defattr(-,root,root,-)
 /usr/share/kservices5/blenderthumbnail.desktop
 /usr/share/kservices5/gsthumbnail.desktop
+/usr/share/kservices5/rawthumbnail.desktop
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/qt5/plugins/blenderthumbnail.so
 /usr/lib64/qt5/plugins/gsthumbnail.so
+/usr/lib64/qt5/plugins/rawthumbnail.so
 
 %files license
 %defattr(0644,root,root,0755)
