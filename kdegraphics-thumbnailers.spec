@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdegraphics-thumbnailers
-Version  : 20.04.1
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.1/src/kdegraphics-thumbnailers-20.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.1/src/kdegraphics-thumbnailers-20.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.1/src/kdegraphics-thumbnailers-20.04.1.tar.xz.sig
+Version  : 20.04.2
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.04.2/src/kdegraphics-thumbnailers-20.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kdegraphics-thumbnailers-20.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kdegraphics-thumbnailers-20.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -53,15 +53,15 @@ license components for the kdegraphics-thumbnailers package.
 
 
 %prep
-%setup -q -n kdegraphics-thumbnailers-20.04.1
-cd %{_builddir}/kdegraphics-thumbnailers-20.04.1
+%setup -q -n kdegraphics-thumbnailers-20.04.2
+cd %{_builddir}/kdegraphics-thumbnailers-20.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589852064
+export SOURCE_DATE_EPOCH=1591905435
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -77,11 +77,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1589852064
+export SOURCE_DATE_EPOCH=1591905435
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers
-cp %{_builddir}/kdegraphics-thumbnailers-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-cp %{_builddir}/kdegraphics-thumbnailers-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kdegraphics-thumbnailers-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/kdegraphics-thumbnailers-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/c08668a6ace9b36ba46940609040748161b03a37
 pushd clr-build
 %make_install
 popd
