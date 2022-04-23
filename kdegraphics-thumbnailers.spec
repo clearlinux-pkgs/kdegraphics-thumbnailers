@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdegraphics-thumbnailers
-Version  : 21.12.3
-Release  : 38
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/kdegraphics-thumbnailers-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kdegraphics-thumbnailers-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kdegraphics-thumbnailers-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 39
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/kdegraphics-thumbnailers-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kdegraphics-thumbnailers-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kdegraphics-thumbnailers-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -19,6 +19,7 @@ Requires: kdegraphics-thumbnailers-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
+BuildRequires : kdegraphics-mobipocket-dev
 BuildRequires : libkdcraw-dev
 BuildRequires : libkexiv2-dev
 BuildRequires : qtbase-dev mesa-dev
@@ -53,15 +54,15 @@ license components for the kdegraphics-thumbnailers package.
 
 
 %prep
-%setup -q -n kdegraphics-thumbnailers-21.12.3
-cd %{_builddir}/kdegraphics-thumbnailers-21.12.3
+%setup -q -n kdegraphics-thumbnailers-22.04.0
+cd %{_builddir}/kdegraphics-thumbnailers-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646543048
+export SOURCE_DATE_EPOCH=1650675405
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -77,11 +78,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646543048
+export SOURCE_DATE_EPOCH=1650675405
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers
-cp %{_builddir}/kdegraphics-thumbnailers-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-cp %{_builddir}/kdegraphics-thumbnailers-21.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kdegraphics-thumbnailers-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/kdegraphics-thumbnailers-22.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/c08668a6ace9b36ba46940609040748161b03a37
 pushd clr-build
 %make_install
 popd
@@ -93,6 +94,7 @@ popd
 %defattr(-,root,root,-)
 /usr/share/kservices5/blenderthumbnail.desktop
 /usr/share/kservices5/gsthumbnail.desktop
+/usr/share/kservices5/mobithumbnail.desktop
 /usr/share/kservices5/rawthumbnail.desktop
 /usr/share/metainfo/org.kde.kdegraphics-thumbnailers.metainfo.xml
 
@@ -100,6 +102,7 @@ popd
 %defattr(-,root,root,-)
 /usr/lib64/qt5/plugins/blenderthumbnail.so
 /usr/lib64/qt5/plugins/gsthumbnail.so
+/usr/lib64/qt5/plugins/mobithumbnail.so
 /usr/lib64/qt5/plugins/rawthumbnail.so
 
 %files license
