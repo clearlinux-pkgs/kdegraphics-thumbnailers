@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdegraphics-thumbnailers
-Version  : 22.12.2
-Release  : 50
-URL      : https://download.kde.org/stable/release-service/22.12.2/src/kdegraphics-thumbnailers-22.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.12.2/src/kdegraphics-thumbnailers-22.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.12.2/src/kdegraphics-thumbnailers-22.12.2.tar.xz.sig
+Version  : 22.12.3
+Release  : 51
+URL      : https://download.kde.org/stable/release-service/22.12.3/src/kdegraphics-thumbnailers-22.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.3/src/kdegraphics-thumbnailers-22.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.3/src/kdegraphics-thumbnailers-22.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -56,15 +56,15 @@ license components for the kdegraphics-thumbnailers package.
 
 
 %prep
-%setup -q -n kdegraphics-thumbnailers-22.12.2
-cd %{_builddir}/kdegraphics-thumbnailers-22.12.2
+%setup -q -n kdegraphics-thumbnailers-22.12.3
+cd %{_builddir}/kdegraphics-thumbnailers-22.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676839212
+export SOURCE_DATE_EPOCH=1677794585
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -80,7 +80,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676839212
+export SOURCE_DATE_EPOCH=1677794585
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers
 cp %{_builddir}/kdegraphics-thumbnailers-%{version}/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-thumbnailers/06877624ea5c77efe3b7e39b0f909eda6e25a4ec || :
